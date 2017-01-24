@@ -76,11 +76,11 @@ gulp.task('css', () =>
 
 // compile javascript
 gulp.task('webpack', () =>
-  gulp.src('./resource/js/**')
+  gulp.src('./resources/js/**')
      .pipe(plumber())
      .pipe(webpack({
        entry: {
-         index: './resource/js/index.js',
+         index: './resources/js/index.js',
          vendor: [
            'jquery',
            'underscore',
@@ -130,7 +130,7 @@ gulp.task('webpack', () =>
      }))
      .pipe(util.env.development ? util.noop() : stripDebug())
      .pipe(util.env.development ? util.noop() : uglify())
-     .pipe(gulp.dest(jsDest))
+     .pipe(gulp.dest(paths.jsDest))
      .pipe(browserSync.reload({stream: true}))
 );
 
